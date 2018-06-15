@@ -5,7 +5,7 @@ class Pics extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('pics_model');
-        $this->load->helper('url_helper'); //this ay ot be visible, might be a built in helper
+        $this->load->helper('url_helper');
         $this->config->set_item('banner', 'Pics Section');
     }//end __construct
     public function index() 
