@@ -29,22 +29,16 @@ class Pics_model extends CI_Model {
     public function set_pics()
     {
         $this->load->helper('url');
-        //$this->input->post('title') is the same as $_POST(title)
         $tags = url_title($this->input->post('title'), 'dash', TRUE);
         $data = array(
             'title' => $this->input->post('title'),
             'slug' => $tags,
             'text' => $this->input->post('text')
         );
-        //return $this->db->insert('sm17_news', $data);
         
         if($this->db->insert('ci_tags', $data))
-        {//data entered, show it
-            //this is what we do to pass the id number to the view page
-            //$this->db->inser_id();
-            
-            //the slug is used by the view page to load the current news item
-            return $tags; 
+        {   
+         return $tags; 
         }else{//problem!
             return false;
         }
