@@ -11,8 +11,6 @@ class Pics extends CI_Controller {
     public function index() 
     {//will show categories of pictures
         
-      
-        //$data['tags'] = $this->pics_model->get_pics();
         $data['tags'] = 'Picture Categories';
             
         $this->config->set_item('tags', 'Pics');
@@ -22,14 +20,12 @@ class Pics extends CI_Controller {
     }//end index
     public function view($tags = NULL)
     {//will show pictures for one category only
-    //$data['tags'] = $this->news_model->get_pics($tags);
        
         $data['pics'] = $this->pics_model->get_pics($tags);
         $data['title'] = 'Picture Categories';
             
         $this->config->set_item('title', 'Pics');
         $this->load->view('pics/view', $data);   
-        //$this->config->set_item('title', $data['news_item']['title']);
     }//end view
     
     
